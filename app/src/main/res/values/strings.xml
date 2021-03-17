@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Exchange Rate</string>
+    <string name="description_text">Курсы валют по состоянию на текущую/предыдущую дату:</string>
+    <string name="current_date_format">Текущая дата: %1$s</string>
+    <string name="previous_date_format">Предыдущая дата: %1$s</string>
+    <string name="refresh_text">Обновить</string>
+    <string name="currency_item_template">%1$s (%2$s): %3$f / %4$f</string>
+    <string name="rubles_amount_text">RUB</string>
+</resources>

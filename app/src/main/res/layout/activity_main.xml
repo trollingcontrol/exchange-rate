@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.05"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.95"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_htop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="15dp"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_hbottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_end="30dp"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_block_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.7"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/description_text"
+        app:layout_constraintWidth_default="spread"
+        app:layout_constraintTop_toTopOf="@id/guideline_htop"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vleft"
+        app:layout_constraintRight_toRightOf="@id/guideline_vright" />
+
+    <TextView
+        android:id="@+id/current_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintWidth_default="spread"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vleft"
+        app:layout_constraintRight_toRightOf="@id/guideline_vright" />
+
+    <TextView
+        android:id="@+id/previous_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_default="spread"
+        app:layout_constraintTop_toBottomOf="@id/current_date"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vleft"
+        app:layout_constraintRight_toRightOf="@id/guideline_vright" />
+
+    <Button
+        android:id="@+id/refresh_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh_text"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_hbottom"
+        app:layout_constraintRight_toRightOf="@id/guideline_vright" />
+
+    <ScrollView
+        android:id="@+id/currencies_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintWidth_default="spread"
+        app:layout_constraintHeight_default="spread"
+        app:layout_constraintTop_toBottomOf="@id/previous_date"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vleft"
+        app:layout_constraintRight_toRightOf="@id/guideline_vright"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_block_divider">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/currencies_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/rubles_amount_edit"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toTopOf="@id/guideline_block_divider"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vleft" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/dest_currency_amount_edit"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toBottomOf="@id/rubles_amount_edit"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vleft" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:id="@+id/rubles_amount_description"
+        android:text="@string/rubles_amount_text"
+        android:gravity="center_vertical"
+        app:layout_constraintWidth_default="spread"
+        app:layout_constraintTop_toTopOf="@id/guideline_block_divider"
+        app:layout_constraintLeft_toRightOf="@id/rubles_amount_edit" />
+
+    <Button
+        android:id="@+id/select_currency_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toBottomOf="@id/rubles_amount_description"
+        app:layout_constraintLeft_toRightOf="@id/dest_currency_amount_edit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
