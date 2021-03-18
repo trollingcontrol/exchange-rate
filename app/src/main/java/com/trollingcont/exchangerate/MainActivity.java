@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 rublesAmountToConvertEdit.setText("");
                 destCurrencyAmountEdit.setText("");
                 currenciesList.clear();
+                popupMenuView.clear();
                 makeRequest();
             }
         });
